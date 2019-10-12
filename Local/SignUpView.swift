@@ -12,8 +12,6 @@ import SwiftUI
 struct SignUpView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var username = ""
-    @State private var password = ""
     
     var backBtn : some View {
         Button(action: {
@@ -31,38 +29,22 @@ struct SignUpView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .center) {
-                Text("Create and Account with Local!")
+            VStack(alignment: .center, spacing: 10.0) {
+                Text("Create an Account with Local!")
                     .font(.title)
                     .fontWeight(.semibold)
                     .foregroundColor(.blue)
-                VStack(alignment: .leading) {
-                    Text("Username")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.top, 10.0)
-                        .padding(.leading, 10.0)
-                        .foregroundColor(.white)
-                    TextField("Username", text: $username)
-                        .frame(width: 250.0, height: 30.0)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.leading, 10.0)
-                        .padding(.trailing, 10.0)
-                    Text("Password")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .padding(.top, 20.0)
-                        .padding(.leading, 10.0)
-                        .foregroundColor(.white)
-                    TextField("Password", text: $password)
-                        .frame(width: 250.0, height: 30.0)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.leading, 10.0)
-                        .padding(.trailing, 10.0)
-                        .padding(.bottom, 15.0)
+                signUpInputFields()
+                NavigationLink(destination: HomeView()) {
+                    Text("Sign Up")
+                        .font(.title)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 270.0, height: 50.0, alignment: .center)
                 }
                 .background(Color.blue)
                 .cornerRadius(15.0)
+                .padding(.bottom, 325.0)
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -73,5 +55,37 @@ struct SignUpView: View {
 struct SignUpView_Preview: PreviewProvider {
     static var previews: some View {
         SignUpView()
+    }
+}
+
+struct signUpInputFields: View {
+    @State private var username = ""
+    @State private var password = ""
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10.0) {
+            Text("Username")
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding(.top, 10.0)
+                .padding(.leading, 10.0)
+            TextField("Username", text: $username)
+                .frame(width: 250.0, height: 30.0)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.bottom, 10.0)
+                .padding(.horizontal, 10.0)
+            Text("Password")
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding(.top, 10.0)
+                .padding(.leading, 10.0)
+            TextField("Password", text: $password)
+                .frame(width: 250.0, height: 30.0)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.bottom, 15.0)
+                .padding(.horizontal, 10.0)
+        }
+        .background(Color.blue)
+        .cornerRadius(15.0)
     }
 }
