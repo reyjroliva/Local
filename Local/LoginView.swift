@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State var signUpSheetPresented = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemBlue]
@@ -16,31 +17,36 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .center, spacing: 10.0) {
-                accountInputFieldsView()
-                NavigationLink(destination: TabControllerView()) {
-                    Text("Login")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 270.0, height: 50.0, alignment: .center)
+                VStack(alignment: .center, spacing: 10.0) {
+                    accountInputFieldsView()
+                    NavigationLink(destination: TabControllerView()) {
+                        Text("Login")
+                            .font(.title)
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 270.0, height: 50.0, alignment: .center)
+                    }
+                    .background(Color(UIColor.systemBlue))
+                    .cornerRadius(15.0)
+                    .padding(.bottom, 140.0)
+                    Text("Don't have an account?")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                    Button(action: {
+                        self.signUpSheetPresented.toggle()
+                    }) {
+                        Text("Sign Up")
+                            .font(.title)
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 270.0, height: 50.0, alignment: .center)
+                    }
+                    .sheet(isPresented: $signUpSheetPresented, content: {
+                        SignUpView(showingSignUpSheet: self.$signUpSheetPresented)
+                    })
+                    .background(Color(UIColor.systemBlue))
+                    .cornerRadius(15.0)
                 }
-                .background(Color(UIColor.systemBlue))
-                .cornerRadius(15.0)
-                .padding(.bottom, 140.0)
-                Text("Don't have an account?")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                NavigationLink(destination: SignUpView()) {
-                    Text("Sign Up")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 270.0, height: 50.0, alignment: .center)
-                }
-                .background(Color(UIColor.systemBlue))
-                .cornerRadius(15.0)
-            }
             .navigationBarTitle(Text("Welcome To Local!"), displayMode: .large)
         }
     }
