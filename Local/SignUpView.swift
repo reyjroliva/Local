@@ -18,10 +18,8 @@ struct SignUpView: View {
             self.presentationMode.wrappedValue.dismiss()
         }) {
             HStack {
-                Image("ic_back")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.white)
-                Text("< Login")
+                Image(systemName: "chevron.left")
+                Text("Login")
             }
         }
     }
@@ -32,17 +30,17 @@ struct SignUpView: View {
             VStack(alignment: .center, spacing: 10.0) {
                 Text("Create an Account with Local!")
                     .font(.title)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.blue)
-                signUpInputFields()
-                NavigationLink(destination: HomeView()) {
+                    .fontWeight(.heavy)
+                    .foregroundColor(Color(UIColor.systemBlue))
+                accountInputFieldsView()
+                NavigationLink(destination: TabControllerView()) {
                     Text("Sign Up")
                         .font(.title)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                         .frame(width: 270.0, height: 50.0, alignment: .center)
                 }
-                .background(Color.blue)
+                .background(Color(UIColor.systemBlue))
                 .cornerRadius(15.0)
                 .padding(.bottom, 325.0)
             }
@@ -55,37 +53,5 @@ struct SignUpView: View {
 struct SignUpView_Preview: PreviewProvider {
     static var previews: some View {
         SignUpView()
-    }
-}
-
-struct signUpInputFields: View {
-    @State private var username = ""
-    @State private var password = ""
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10.0) {
-            Text("Username")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding(.top, 10.0)
-                .padding(.leading, 10.0)
-            TextField("Username", text: $username)
-                .frame(width: 250.0, height: 30.0)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10.0)
-                .padding(.horizontal, 10.0)
-            Text("Password")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding(.top, 10.0)
-                .padding(.leading, 10.0)
-            TextField("Password", text: $password)
-                .frame(width: 250.0, height: 30.0)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 15.0)
-                .padding(.horizontal, 10.0)
-        }
-        .background(Color.blue)
-        .cornerRadius(15.0)
     }
 }
