@@ -30,6 +30,11 @@ struct TabControllerView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(trailing: Button(action: {}) {
+            Image(systemName: "ellipsis")
+                .font(.title)
+                .padding(.top, 35.0)
+        })
         .navigationBarTitle("Local")
     }
 }
