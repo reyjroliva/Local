@@ -9,12 +9,12 @@
 import Foundation
 import SwiftUI
 
-struct TabControllerView: View {
+struct tabControllerView: View {
     @State private var selection = 1
     
     var body: some View {
         TabView(selection: $selection) {
-            HomeView()
+            homeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                         .font(.title)
@@ -40,8 +40,8 @@ struct TabControllerView: View {
     }
 }
 
-struct TabControllerView_Preview: PreviewProvider {
+struct tabControllerView_Preview: PreviewProvider {
     static var previews: some View {
-        TabControllerView()
+        tabControllerView()
     }
 }

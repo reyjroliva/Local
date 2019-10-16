@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct SignUpView: View {
+struct signUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var showingSignUpSheet: Bool
     @State private var showingSignUpAlert = false

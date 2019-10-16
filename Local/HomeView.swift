@@ -9,25 +9,25 @@
 import Foundation
 import SwiftUI
 
-struct HomeView: View {
+struct homeView: View {
     var body: some View {
         List {
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
-            HomeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
+            homeItemView()
         }
     }
 }
 
-struct HomeView_Preview: PreviewProvider {
+struct homeView_Preview: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        homeView()
     }
 }

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct loginView: View {
     @State var signUpSheetPresented = false
     
     init() {
@@ -19,7 +19,7 @@ struct LoginView: View {
         NavigationView {
             VStack(alignment: .center, spacing: 10.0) {
                 accountInputFieldsView()
-                NavigationLink(destination: TabControllerView()) {
+                NavigationLink(destination: tabControllerView()) {
                     Text("Login")
                         .font(.title)
                         .foregroundColor(Color.white)
@@ -42,7 +42,7 @@ struct LoginView: View {
                         .frame(width: 270.0, height: 50.0, alignment: .center)
                 }
                 .sheet(isPresented: $signUpSheetPresented, content: {
-                    SignUpView(showingSignUpSheet: self.$signUpSheetPresented)
+                    signUpView(showingSignUpSheet: self.$signUpSheetPresented)
                 })
                     .background(Color(UIColor.systemBlue))
                     .cornerRadius(15.0)
@@ -52,8 +52,8 @@ struct LoginView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct loginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        loginView()
     }
 }

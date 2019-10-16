@@ -41,7 +41,7 @@ struct accountInputFieldsView: View {
     }
 }
 
-struct AccountInputFieldsView_Previews: PreviewProvider {
+struct accountInputFieldsView_Previews: PreviewProvider {
     static var previews: some View {
         accountInputFieldsView()
     }

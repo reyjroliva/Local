@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct HomeItemView: View {
+struct homeItemView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 5.0) {
             Image(systemName: "rectangle.grid.1x2")
@@ -36,8 +36,8 @@ struct HomeItemView: View {
     }
 }
 
-struct HomeItemView_Previews: PreviewProvider {
+struct homeItemView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeItemView()
+        homeItemView()
     }
 }
