@@ -23,6 +23,7 @@
 		EFCA6AD823417E9300904D4F /* LocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA6AD723417E9300904D4F /* LocalTests.swift */; };
 		EFCA6AE323417E9300904D4F /* LocalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA6AE223417E9300904D4F /* LocalUITests.swift */; };
 		EFCA6AF123417F2B00904D4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCA6AF023417F2B00904D4F /* GoogleService-Info.plist */; };
+		EFF8F9C0235762B000502899 /* HomeItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8F9BF235762B000502899 /* HomeItemDetailView.swift */; };
 		F3B6533AD1FB5F77A42688B6 /* Pods_LocalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04753349FB7795CC1C599784 /* Pods_LocalTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		EFCA6AE223417E9300904D4F /* LocalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUITests.swift; sourceTree = "<group>"; };
 		EFCA6AE423417E9300904D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFCA6AF023417F2B00904D4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFF8F9BF235762B000502899 /* HomeItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				EFCA6AC023417E9100904D4F /* AppDelegate.swift */,
 				EFCA6AC223417E9100904D4F /* SceneDelegate.swift */,
 				EFCA6AC423417E9100904D4F /* LoginView.swift */,
+				EFF8F9BF235762B000502899 /* HomeItemDetailView.swift */,
 				EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */,
 				EF57637E2343B3790082A2D5 /* TabControllerView.swift */,
 				EF7CCC6023564AD50031CEC7 /* HomeView.swift */,
@@ -473,6 +476,7 @@
 				EF6ED8652354F624009D8EF6 /* AccountInputFieldsView.swift in Sources */,
 				EF7CCC5F23563ED60031CEC7 /* HomeItemView.swift in Sources */,
 				EF57637D2343A4850082A2D5 /* SignUpView.swift in Sources */,
+				EFF8F9C0235762B000502899 /* HomeItemDetailView.swift in Sources */,
 				EFCA6AC123417E9100904D4F /* AppDelegate.swift in Sources */,
 				EFCA6AC323417E9100904D4F /* SceneDelegate.swift in Sources */,
 				EF7CCC6123564AD50031CEC7 /* HomeView.swift in Sources */,

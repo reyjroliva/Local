@@ -21,16 +21,13 @@ struct homeItemView: View {
                 Text("Item Name")
                     .font(.title)
                     .fontWeight(.light)
-                Text("Description goes her, what happens when the desctiption gets super long?")
+                Text("Description goes here, what happens when the desctiption gets super long?")
                     .font(.subheadline)
                     .fontWeight(.light)
                     .lineLimit(2)
             }
-            .frame(width: 200.0, alignment: .leading)
+            .frame(width: 210.0, alignment: .leading)
             Spacer()
-            Image(systemName: "chevron.right")
-                .font(.title)
-                .foregroundColor(.gray)
         }
         .padding()
     }
@@ -39,5 +36,6 @@ struct homeItemView: View {
 struct homeItemView_Previews: PreviewProvider {
     static var previews: some View {
         homeItemView()
+            .previewLayout(.fixed(width: 350, height: 100))
     }
 }

@@ -11,18 +11,24 @@ import SwiftUI
 
 struct homeView: View {
     var body: some View {
-        List {
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
-            homeItemView()
+        NavigationView {
+            List {
+                NavigationLink(destination: homeItemDetailView()) {
+                    homeItemView()
+                }
+                homeItemView()
+                homeItemView()
+                homeItemView()
+                homeItemView()
+                homeItemView()
+                homeItemView()
+                homeItemView()
+                homeItemView()
+                homeItemView()
+            }
         }
+        .navigationBarHidden(true)
+//        .edgesIgnoringSafeArea(.all)
     }
 }
 
