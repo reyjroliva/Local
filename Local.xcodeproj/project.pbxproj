@@ -153,14 +153,12 @@
 		EFCA6ABF23417E9100904D4F /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8F9C12357750000502899 /* HomeViewTab */,
 				EFCA6AC023417E9100904D4F /* AppDelegate.swift */,
 				EFCA6AC223417E9100904D4F /* SceneDelegate.swift */,
 				EFCA6AC423417E9100904D4F /* LoginView.swift */,
-				EFF8F9BF235762B000502899 /* HomeItemDetailView.swift */,
 				EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */,
 				EF57637E2343B3790082A2D5 /* TabControllerView.swift */,
-				EF7CCC6023564AD50031CEC7 /* HomeView.swift */,
-				EF7CCC5E23563ED60031CEC7 /* HomeItemView.swift */,
 				EF57637C2343A4850082A2D5 /* SignUpView.swift */,
 				EFCA6AC623417E9300904D4F /* Assets.xcassets */,
 				EFCA6ACB23417E9300904D4F /* LaunchScreen.storyboard */,
@@ -195,6 +193,16 @@
 				EFCA6AE423417E9300904D4F /* Info.plist */,
 			);
 			path = LocalUITests;
+			sourceTree = "<group>";
+		};
+		EFF8F9C12357750000502899 /* HomeViewTab */ = {
+			isa = PBXGroup;
+			children = (
+				EF7CCC6023564AD50031CEC7 /* HomeView.swift */,
+				EF7CCC5E23563ED60031CEC7 /* HomeItemView.swift */,
+				EFF8F9BF235762B000502899 /* HomeItemDetailView.swift */,
+			);
+			path = HomeViewTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
