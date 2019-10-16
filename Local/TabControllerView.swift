@@ -13,29 +13,30 @@ struct TabControllerView: View {
     @State private var selection = 1
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $selection) {
-                Text("Home Tab").tabItem {
+        TabView(selection: $selection) {
+            HomeView()
+                .tabItem {
                     Image(systemName: "house.fill")
                         .font(.title)
-                }.tag(1)
-                Text("Social Media Tab").tabItem {
+            }.tag(1)
+            Text("Social Media Tab")
+                .tabItem {
                     Image(systemName: "camera.fill")
                         .font(.title)
-                }.tag(2)
-                Text("Contact Us Tab").tabItem {
+            }.tag(2)
+            Text("Contact Us Tab")
+                .tabItem {
                     Image(systemName: "text.bubble.fill")
                         .font(.title)
-                }.tag(3)
-            }
+            }.tag(3)
         }
+        .navigationBarTitle("Local")
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(trailing: Button(action: {}) {
             Image(systemName: "ellipsis")
                 .font(.title)
                 .padding(.top, 35.0)
         })
-        .navigationBarTitle("Local")
     }
 }
 

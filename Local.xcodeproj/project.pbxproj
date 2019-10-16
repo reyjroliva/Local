@@ -12,6 +12,8 @@
 		EF57637D2343A4850082A2D5 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57637C2343A4850082A2D5 /* SignUpView.swift */; };
 		EF57637F2343B3790082A2D5 /* TabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57637E2343B3790082A2D5 /* TabControllerView.swift */; };
 		EF6ED8652354F624009D8EF6 /* AccountInputFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */; };
+		EF7CCC5F23563ED60031CEC7 /* HomeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7CCC5E23563ED60031CEC7 /* HomeItemView.swift */; };
+		EF7CCC6123564AD50031CEC7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7CCC6023564AD50031CEC7 /* HomeView.swift */; };
 		EFCA6AC123417E9100904D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA6AC023417E9100904D4F /* AppDelegate.swift */; };
 		EFCA6AC323417E9100904D4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA6AC223417E9100904D4F /* SceneDelegate.swift */; };
 		EFCA6AC523417E9100904D4F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA6AC423417E9100904D4F /* LoginView.swift */; };
@@ -54,6 +56,8 @@
 		EF57637C2343A4850082A2D5 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		EF57637E2343B3790082A2D5 /* TabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerView.swift; sourceTree = "<group>"; };
 		EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInputFieldsView.swift; sourceTree = "<group>"; };
+		EF7CCC5E23563ED60031CEC7 /* HomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemView.swift; sourceTree = "<group>"; };
+		EF7CCC6023564AD50031CEC7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EFCA6ABD23417E9100904D4F /* Local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Local.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCA6AC023417E9100904D4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCA6AC223417E9100904D4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				EFCA6AC423417E9100904D4F /* LoginView.swift */,
 				EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */,
 				EF57637E2343B3790082A2D5 /* TabControllerView.swift */,
+				EF7CCC6023564AD50031CEC7 /* HomeView.swift */,
+				EF7CCC5E23563ED60031CEC7 /* HomeItemView.swift */,
 				EF57637C2343A4850082A2D5 /* SignUpView.swift */,
 				EFCA6AC623417E9300904D4F /* Assets.xcassets */,
 				EFCA6ACB23417E9300904D4F /* LaunchScreen.storyboard */,
@@ -465,9 +471,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF6ED8652354F624009D8EF6 /* AccountInputFieldsView.swift in Sources */,
+				EF7CCC5F23563ED60031CEC7 /* HomeItemView.swift in Sources */,
 				EF57637D2343A4850082A2D5 /* SignUpView.swift in Sources */,
 				EFCA6AC123417E9100904D4F /* AppDelegate.swift in Sources */,
 				EFCA6AC323417E9100904D4F /* SceneDelegate.swift in Sources */,
+				EF7CCC6123564AD50031CEC7 /* HomeView.swift in Sources */,
 				EF57637F2343B3790082A2D5 /* TabControllerView.swift in Sources */,
 				EFCA6AC523417E9100904D4F /* LoginView.swift in Sources */,
 			);
