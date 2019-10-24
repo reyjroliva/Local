@@ -10,25 +10,23 @@ import Foundation
 import SwiftUI
 
 struct homeView: View {
+@State var isPresented = false
+    
     var body: some View {
         NavigationView {
             List {
                 NavigationLink(destination: homeItemDetailView()) {
                     homeItemView()
+                    .navigationBarHidden(true)
                 }
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
                 homeItemView()
                 homeItemView()
                 homeItemView()
                 homeItemView()
             }
         }
-        .navigationBarHidden(true)
-//        .edgesIgnoringSafeArea(.all)
+    .navigationViewStyle(DefaultNavigationViewStyle())
+    .navigationBarHidden(true)
     }
 }
 
