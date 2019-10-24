@@ -10,23 +10,15 @@ import Foundation
 import SwiftUI
 
 struct homeView: View {
-@State var isPresented = false
+    @State var selection: Int? = nil
     
     var body: some View {
-        NavigationView {
-            List {
-                NavigationLink(destination: homeItemDetailView()) {
-                    homeItemView()
-                    .navigationBarHidden(true)
-                }
-                homeItemView()
-                homeItemView()
-                homeItemView()
+        List(selection: $selection, content: {
+            ForEach(0..<5) { _ in
                 homeItemView()
             }
-        }
-    .navigationViewStyle(DefaultNavigationViewStyle())
-    .navigationBarHidden(true)
+        })
+        .navigationBarHidden(true)
     }
 }
 
