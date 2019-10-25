@@ -35,6 +35,7 @@ struct accountInputFieldsView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.bottom, 15.0)
                 .padding(.horizontal, 10.0)
+                .textContentType(.password)
         }
         .background(Color(UIColor.systemBlue))
         .cornerRadius(15.0)
