@@ -14,7 +14,7 @@ struct accountInputFieldsView: View {
     @State private var password = ""
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10.0) {
+        List {
             Text("Username")
                 .font(.headline)
                 .foregroundColor(.white)
@@ -22,7 +22,8 @@ struct accountInputFieldsView: View {
                 .padding(.leading, 10.0)
             TextField("Username", text: $username)
                 .frame(width: 250.0, height: 30.0)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .background(Color.red)
+                .cornerRadius(5.0)
                 .padding(.bottom, 10.0)
                 .padding(.horizontal, 10.0)
             Text("Password")
@@ -32,7 +33,8 @@ struct accountInputFieldsView: View {
                 .padding(.leading, 10.0)
             SecureField("Password", text: $password)
                 .frame(width: 250.0, height: 30.0)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .background(Color.red)
+                .cornerRadius(5.0)
                 .padding(.bottom, 15.0)
                 .padding(.horizontal, 10.0)
                 .textContentType(.password)
