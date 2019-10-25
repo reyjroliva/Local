@@ -30,7 +30,7 @@ struct accountInputFieldsView: View {
                 .foregroundColor(.white)
                 .padding(.top, 10.0)
                 .padding(.leading, 10.0)
-            TextField("Password", text: $password)
+            SecureField("Password", text: $password)
                 .frame(width: 250.0, height: 30.0)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.bottom, 15.0)
