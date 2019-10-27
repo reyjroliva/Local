@@ -48,6 +48,7 @@ struct loginView: View {
                     .cornerRadius(15.0)
             }
             .navigationBarTitle(Text("Welcome To Local!"), displayMode: .large)
+            .fixedSize(horizontal: true, vertical: true)
         }
     }
 }

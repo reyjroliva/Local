@@ -11,14 +11,28 @@ import SwiftUI
 
 struct homeView: View {
     @State var selection: Int? = nil
+    @State var isPresented = false
     
     var body: some View {
-        List(selection: $selection, content: {
-            ForEach(0..<5) { _ in
-                homeItemView()
+        NavigationView {
+            List(selection: $selection) {
+                ForEach(0..<15) { _ in
+                    Button(action: {
+                        self.isPresented.toggle()
+                    }) {
+                        homeItemView()
+                    }
+                    .sheet(isPresented: self.$isPresented) {
+                        homeItemDetailView()
+                    }
+                }
             }
-        })
-        .navigationBarHidden(true)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
+        .sheet(isPresented: $isPresented) {
+            homeItemDetailView()
+        }
     }
 }
 

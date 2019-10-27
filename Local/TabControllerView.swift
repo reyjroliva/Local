@@ -30,7 +30,7 @@ struct tabControllerView: View {
                         .font(.title)
             }.tag(3)
         }
-        .navigationBarTitle("Local")
+        .navigationBarTitle("Local", displayMode: .large)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(trailing: Button(action: {}) {
             Image(systemName: "ellipsis")
