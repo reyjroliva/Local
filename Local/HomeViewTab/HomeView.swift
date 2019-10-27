@@ -16,6 +16,9 @@ struct homeView: View {
     var body: some View {
         NavigationView {
             List(selection: $selection) {
+                Button(action: {}) {
+                    Image(systemName: "pencil")
+                }
                 ForEach(0..<15) { _ in
                     Button(action: {
                         self.isPresented.toggle()
