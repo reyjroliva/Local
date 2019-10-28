@@ -16,8 +16,23 @@ struct homeView: View {
     var body: some View {
         NavigationView {
             List(selection: $selection) {
-                Button(action: {}) {
-                    Image(systemName: "pencil")
+                HStack(alignment: .center) {
+                    Spacer()
+                    Button(action: {}) {
+                        HStack(alignment: .center) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(Color.white)
+                            Text("Add Item")
+                                .font(.title)
+                                .foregroundColor(Color.white)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .frame(width: 250, height: 70)
+                    .background(Color(UIColor.systemBlue))
+                    .cornerRadius(15.0)
+                    Spacer()
                 }
                 ForEach(0..<15) { _ in
                     Button(action: {
