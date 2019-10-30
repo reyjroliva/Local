@@ -9,7 +9,15 @@
 import Foundation
 import SwiftUI
 
+struct Item: Identifiable {
+    var id = UUID()
+    var name: String
+    var description: String
+}
+
 struct homeItemView: View {
+    var item: Item
+    
     var body: some View {
         HStack(alignment: .center, spacing: 5.0) {
             Image(systemName: "rectangle.grid.1x2")
@@ -18,10 +26,10 @@ struct homeItemView: View {
                 .background(Color.red)
                 .cornerRadius(15.0)
             VStack(alignment: .leading) {
-                Text("Item Name")
+                Text("\(item.name)")
                     .font(.title)
                     .fontWeight(.light)
-                Text("Description goes here, what happens when the desctiption gets super long?")
+                Text("\(item.description)")
                     .font(.subheadline)
                     .fontWeight(.light)
                     .lineLimit(2)
@@ -35,8 +43,9 @@ struct homeItemView: View {
 }
 
 struct homeItemView_Previews: PreviewProvider {
+    @State static var item = Item(name: "Test Name", description: "This is a test description")
     static var previews: some View {
-        homeItemView()
+        homeItemView(item: item)
             .previewLayout(.fixed(width: 350, height: 100))
     }
 }

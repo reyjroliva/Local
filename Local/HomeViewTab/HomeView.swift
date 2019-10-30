@@ -12,6 +12,8 @@ import SwiftUI
 struct homeView: View {
     @State var selection: Int? = nil
     @State var isPresented = false
+    @State var itemToPresent = Item(name: "Bullshit", description: "Even more bullshit about the bullshit")
+    let items = [Item(name: "Item 1", description: "This is a description for Item 1, ya herrddd"), Item(name: "Item 2", description: "This is a description for Item 2, ya herrddd"), Item(name: "Item 3", description: "This is a description for Item 3, ya herrddd"), Item(name: "Item 4", description: "This is a description for Item 4, ya herrddd"), Item(name: "Item 5", description: "This is a description for Item 5, ya herrddd"), Item(name: "Item 6", description: "This is a description for Item 6, ya herrddd"), Item(name: "Item 7", description: "This is a description for Item 7, ya herrddd"), Item(name: "Item 8", description: "This is a description for Item 8, ya herrddd"), Item(name: "Item 9", description: "This is a description for Item 9, ya herrddd"), Item(name: "Item 10", description: "This is a description for Item 10, ya herrddd"), Item(name: "Item 11", description: "This is a description for Item 11, ya herrddd"), Item(name: "Item 12", description: "This is a description for Item 12, ya herrddd")]
     
     var body: some View {
         NavigationView {
@@ -38,15 +40,16 @@ struct homeView: View {
                 .padding(5.0)
                 Divider()
                 ScrollView {
-                    ForEach(0..<15) { _ in
+                    ForEach(items) { item in
                         Button(action: {
                             self.isPresented.toggle()
+                            self.itemToPresent = item
                         }) {
-                            homeItemView()
+                            homeItemView(item: item)
                         }
                         .foregroundColor(Color(UIColor.black))
                         .sheet(isPresented: self.$isPresented) {
-                            homeItemDetailView()
+                            homeItemDetailView(item: self.itemToPresent)
                         }
                     }
                 }

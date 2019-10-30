@@ -10,6 +10,8 @@ import Foundation
 import SwiftUI
 
 struct homeItemDetailView: View {
+    var item: Item
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0) {
             Image(systemName: "rectangle.grid.1x2")
@@ -17,11 +19,11 @@ struct homeItemDetailView: View {
                 .font(.largeTitle)
                 .background(Color.red)
                 .cornerRadius(15.0)
-            Text("Item Name")
+            Text("\(item.name)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top, 15.0)
-            Text("Description goes here")
+            Text("\(item.description)")
                 .font(.body)
                 .multilineTextAlignment(.leading)
             Spacer()
@@ -50,7 +52,8 @@ struct homeItemDetailView: View {
 }
 
 struct homeItemDetailView_Previews: PreviewProvider {
+    @State static var item = Item(name: "Test Item", description: "This is a test description")
     static var previews: some View  {
-        homeItemDetailView()
+        homeItemDetailView(item: item)
     }
 }
