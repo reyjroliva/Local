@@ -15,41 +15,44 @@ struct homeView: View {
     
     var body: some View {
         NavigationView {
-            List(selection: $selection) {
-                HStack(alignment: .center) {
-                    Spacer()
-                    Button(action: {}) {
-                        HStack(alignment: .center) {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(Color.white)
-                            Text("Add Item")
-                                .font(.title)
-                                .foregroundColor(Color.white)
-                                .fontWeight(.semibold)
+            VStack(alignment: .center, spacing: 0.0) {
+                Divider()
+                Button(action: {
+                    print("add item pressed")
+                }) {
+                    HStack(alignment: .center) {
+                        Spacer()
+                        Image(systemName: "plus.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(Color.white)
+                        Text("Add Item")
+                            .font(.title)
+                            .foregroundColor(Color.white)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
+                }
+                .frame(height: 60.0)
+                .background(Color(UIColor.systemBlue))
+                .cornerRadius(15.0)
+                .padding(5.0)
+                Divider()
+                ScrollView {
+                    ForEach(0..<15) { _ in
+                        Button(action: {
+                            self.isPresented.toggle()
+                        }) {
+                            homeItemView()
+                        }
+                        .foregroundColor(Color(UIColor.black))
+                        .sheet(isPresented: self.$isPresented) {
+                            homeItemDetailView()
                         }
                     }
-                    .frame(width: 250, height: 70)
-                    .background(Color(UIColor.systemBlue))
-                    .cornerRadius(15.0)
-                    Spacer()
                 }
-                ForEach(0..<15) { _ in
-                    Button(action: {
-                        self.isPresented.toggle()
-                    }) {
-                        homeItemView()
-                    }
-                    .sheet(isPresented: self.$isPresented) {
-                        homeItemDetailView()
-                    }
-                }
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-        }
-        .sheet(isPresented: $isPresented) {
-            homeItemDetailView()
         }
     }
 }
