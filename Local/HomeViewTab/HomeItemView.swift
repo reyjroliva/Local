@@ -30,6 +30,7 @@ struct homeItemView: View {
             Spacer()
         }
         .padding()
+        .navigationBarHidden(true)
     }
 }
 

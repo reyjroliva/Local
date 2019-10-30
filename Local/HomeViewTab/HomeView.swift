@@ -10,25 +10,47 @@ import Foundation
 import SwiftUI
 
 struct homeView: View {
+    @State var selection: Int? = nil
+    @State var isPresented = false
+    
     var body: some View {
         NavigationView {
-            List {
-                NavigationLink(destination: homeItemDetailView()) {
-                    homeItemView()
+            List(selection: $selection) {
+                HStack(alignment: .center) {
+                    Spacer()
+                    Button(action: {}) {
+                        HStack(alignment: .center) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(Color.white)
+                            Text("Add Item")
+                                .font(.title)
+                                .foregroundColor(Color.white)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .frame(width: 250, height: 70)
+                    .background(Color(UIColor.systemBlue))
+                    .cornerRadius(15.0)
+                    Spacer()
                 }
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
-                homeItemView()
+                ForEach(0..<15) { _ in
+                    Button(action: {
+                        self.isPresented.toggle()
+                    }) {
+                        homeItemView()
+                    }
+                    .sheet(isPresented: self.$isPresented) {
+                        homeItemDetailView()
+                    }
+                }
             }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
-//        .edgesIgnoringSafeArea(.all)
+        .sheet(isPresented: $isPresented) {
+            homeItemDetailView()
+        }
     }
 }
 
