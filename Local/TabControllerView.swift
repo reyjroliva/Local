@@ -10,25 +10,23 @@ import Foundation
 import SwiftUI
 
 struct tabControllerView: View {
-    @State private var selection = 1
-    
     var body: some View {
-        TabView(selection: $selection) {
+        TabView {
             homeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                         .font(.title)
-            }.tag(1)
+            }.tag(0)
             socialMediaView()
                 .tabItem {
                     Image(systemName: "camera.fill")
                         .font(.title)
-            }.tag(2)
+            }.tag(1)
             Text("Contact Us Tab")
                 .tabItem {
                     Image(systemName: "text.bubble.fill")
                         .font(.title)
-            }.tag(3)
+            }.tag(2)
         }
         .navigationBarTitle("Local", displayMode: .large)
         .navigationBarBackButtonHidden(true)
