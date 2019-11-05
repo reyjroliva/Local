@@ -19,7 +19,7 @@ struct tabControllerView: View {
                     Image(systemName: "house.fill")
                         .font(.title)
             }.tag(1)
-            Text("Social Media Tab")
+            socialMediaView()
                 .tabItem {
                     Image(systemName: "camera.fill")
                         .font(.title)
