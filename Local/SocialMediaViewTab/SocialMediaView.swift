@@ -11,7 +11,33 @@ import SwiftUI
 
 struct socialMediaView: View {
     var body: some View {
-        Text("This is the social media view")
+        VStack(alignment: .center) {
+            Text("Welcome to Local's Feed!")
+                .font(.title)
+                .fontWeight(.semibold)
+                .foregroundColor(Color(UIColor.systemBlue))
+            Text("Follow us on:")
+                .font(.subheadline)
+                .fontWeight(.semibold)
+                .foregroundColor(Color(UIColor.systemBlue))
+            HStack(alignment: .center, spacing: 5.0) {
+                Image(systemName: "camera.fill")
+                    .font(.title)
+                    .foregroundColor(Color(UIColor.systemPink))
+                Text("Local")
+                    .font(.headline)
+                Image(systemName: "paperplane.fill")
+                    .font(.title)
+                    .foregroundColor(Color(UIColor.systemBlue))
+                Text("@Local")
+                    .font(.headline)
+                Image(systemName: "faceid")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color(UIColor.blue))
+                Text("@Local")
+                    .font(.headline)
+            }
+        }
     }
 }
 
