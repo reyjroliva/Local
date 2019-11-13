@@ -12,16 +12,16 @@ import SwiftUI
 struct homeView: View {
     @State var selection: Int? = nil
     @State var isPresented = false
-    @State var itemToPresent = Item(name: "Bullshit", description: "Even more bullshit about the bullshit")
-    @State var items = [Item(name: "Item 1", description: "This is a description for Item 1, ya herrddd"), Item(name: "Item 2", description: "This is a description for Item 2, ya herrddd"), Item(name: "Item 3", description: "This is a description for Item 3, ya herrddd"), Item(name: "Item 4", description: "This is a description for Item 4, ya herrddd"), Item(name: "Item 5", description: "This is a description for Item 5, ya herrddd"), Item(name: "Item 6", description: "This is a description for Item 6, ya herrddd"), Item(name: "Item 7", description: "This is a description for Item 7, ya herrddd"), Item(name: "Item 8", description: "This is a description for Item 8, ya herrddd"), Item(name: "Item 9", description: "This is a description for Item 9, ya herrddd"), Item(name: "Item 10", description: "This is a description for Item 10, ya herrddd"), Item(name: "Item 11", description: "This is a description for Item 11, ya herrddd"), Item(name: "Item 12", description: "This is a description for Item 12, ya herrddd")]
+    @State var itemCreationPresented = false
+    @State var itemToPresent = Item(name: "Bullshit", price: 5.0, description: "Even more bullshit about the bullshit")
+    @State var items = [Item(name: "Item 1", price: 4.20, description: "This is a description for Item 1, ya herrddd")]
     
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 0.0) {
                 Divider()
                 Button(action: {
-                    self.addItemToList()
-                    print("add item pressed")
+                    self.itemCreationPresented.toggle()
                 }) {
                     HStack(alignment: .center) {
                         Spacer()
@@ -35,13 +35,16 @@ struct homeView: View {
                         Spacer()
                     }
                 }
+                .sheet(isPresented: self.$itemCreationPresented) {
+                    homeItemCreationView(showingItemCreationSheet: self.$itemCreationPresented, itemArray: self.$items)
+                }
                 .frame(height: 60.0)
                 .background(Color(UIColor.systemBlue))
                 .cornerRadius(15.0)
                 .padding(5.0)
                 Divider()
                 ScrollView {
-                    ForEach(items) { item in
+                    ForEach(items.reversed()) { item in
                         Button(action: {
                             self.isPresented.toggle()
                             self.itemToPresent = item
@@ -59,11 +62,11 @@ struct homeView: View {
             }
         }
     }
-    
-    func addItemToList() {
-        let newItem = Item(name: "New Items", description: "this is a new description")
-        items.append(newItem)
-    }
+}
+
+func addItemToList(items: inout [Item], name: String, price: Double, description: String) {
+    let newItem = Item(name: name, price: price, description: description)
+    items.append(newItem)
 }
 
 struct homeView_Preview: PreviewProvider {

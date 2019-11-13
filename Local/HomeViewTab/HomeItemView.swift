@@ -12,6 +12,7 @@ import SwiftUI
 struct Item: Identifiable {
     var id = UUID()
     var name: String
+    var price: Double
     var description: String
 }
 
@@ -43,7 +44,7 @@ struct homeItemView: View {
 }
 
 struct homeItemView_Previews: PreviewProvider {
-    @State static var item = Item(name: "Test Name", description: "This is a test description")
+    @State static var item = Item(name: "Test Name", price: 5.0, description: "This is a test description")
     static var previews: some View {
         homeItemView(item: item)
             .previewLayout(.fixed(width: 350, height: 100))

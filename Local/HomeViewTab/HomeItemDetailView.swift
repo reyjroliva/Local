@@ -35,7 +35,7 @@ struct homeItemDetailView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
                     Spacer()
-                    Text("$xx.xx")
+                    Text("$\(item.price, specifier: "%.2f")")
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
@@ -52,7 +52,7 @@ struct homeItemDetailView: View {
 }
 
 struct homeItemDetailView_Previews: PreviewProvider {
-    @State static var item = Item(name: "Test Item", description: "This is a test description")
+    @State static var item = Item(name: "Test Item", price: 4.20, description: "This is a test description")
     static var previews: some View  {
         homeItemDetailView(item: item)
     }
