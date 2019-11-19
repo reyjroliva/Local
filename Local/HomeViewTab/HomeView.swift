@@ -53,7 +53,7 @@ struct homeView: View {
                         }
                         .foregroundColor(Color(UIColor.black))
                         .sheet(isPresented: self.$isPresented) {
-                            homeItemDetailView(item: self.itemToPresent)
+                            homeItemDetailView(itemArray: self.$items, item: self.itemToPresent)
                         }
                     }
                 }
@@ -67,6 +67,15 @@ struct homeView: View {
 func addItemToList(items: inout [Item], name: String, price: Double, description: String) {
     let newItem = Item(name: name, price: price, description: description)
     items.append(newItem)
+}
+
+func deleteItemFromList(items: inout [Item], item: Item) {
+    for(index, listing) in items.enumerated()
+    {
+        if(listing.id == item.id) {
+            items.remove(at: index)
+        }
+    }
 }
 
 struct homeView_Preview: PreviewProvider {

@@ -11,6 +11,7 @@ import SwiftUI
 import MessageUI
 
 struct homeItemDetailView: View {
+    @Binding var itemArray: [Item]
     @State var item: Item
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
@@ -55,7 +56,9 @@ struct homeItemDetailView: View {
                 .background(Color(UIColor.systemBlue))
                 .cornerRadius(15.0)
                 //If the user is the owner
-                Button(action: {}) {
+                Button(action: {
+                    deleteItemFromList(items: &self.itemArray, item: self.item)
+                }) {
                     Text("Delete Item")
                         .font(.title)
                         .fontWeight(.semibold)
@@ -64,7 +67,6 @@ struct homeItemDetailView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50.0)
                 .background(Color(UIColor.systemRed))
                 .cornerRadius(15.0)
-                //
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             .padding()
@@ -85,8 +87,9 @@ struct homeItemDetailView: View {
 }
 
 struct homeItemDetailView_Previews: PreviewProvider {
+    @State static var previewItemsArray = [Item(name: "Some name", price: 5.0, description: "Some description")]
     @State static var item = Item(name: "Test Item", price: 4.20, description: "This is a test description")
     static var previews: some View  {
-        homeItemDetailView(item: item)
+        homeItemDetailView(itemArray:$previewItemsArray, item: item)
     }
 }
