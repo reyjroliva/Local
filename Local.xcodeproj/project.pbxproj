@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		074CE48374D2A914A3826653 /* Pods_Local_LocalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88038D60A4CF6C3C1F203395 /* Pods_Local_LocalUITests.framework */; };
 		121D314EADCCF116BD9F322C /* Pods_Local.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE156C9078CF7D30B22F0F9 /* Pods_Local.framework */; };
+		EF407C32238483A0006B2EB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF407C31238483A0006B2EB0 /* SettingsView.swift */; };
 		EF57637D2343A4850082A2D5 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57637C2343A4850082A2D5 /* SignUpView.swift */; };
 		EF57637F2343B3790082A2D5 /* TabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57637E2343B3790082A2D5 /* TabControllerView.swift */; };
 		EF6ED8652354F624009D8EF6 /* AccountInputFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */; };
@@ -58,6 +59,7 @@
 		92B45C92750FCA7E76D4C94A /* Pods-Local.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Local.release.xcconfig"; path = "Target Support Files/Pods-Local/Pods-Local.release.xcconfig"; sourceTree = "<group>"; };
 		D3094D6D039D9856D305D342 /* Pods-Local-LocalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Local-LocalUITests.release.xcconfig"; path = "Target Support Files/Pods-Local-LocalUITests/Pods-Local-LocalUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E1BD0F2036FF26932570B62A /* Pods-Local-LocalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Local-LocalUITests.debug.xcconfig"; path = "Target Support Files/Pods-Local-LocalUITests/Pods-Local-LocalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF407C31238483A0006B2EB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EF57637C2343A4850082A2D5 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		EF57637E2343B3790082A2D5 /* TabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerView.swift; sourceTree = "<group>"; };
 		EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInputFieldsView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				EFCA6AC423417E9100904D4F /* LoginView.swift */,
 				EF6ED8642354F624009D8EF6 /* AccountInputFieldsView.swift */,
 				EF57637E2343B3790082A2D5 /* TabControllerView.swift */,
+				EF407C31238483A0006B2EB0 /* SettingsView.swift */,
 				EF57637C2343A4850082A2D5 /* SignUpView.swift */,
 				EFCA6AC623417E9300904D4F /* Assets.xcassets */,
 				EFCA6ACB23417E9300904D4F /* LaunchScreen.storyboard */,
@@ -508,6 +511,7 @@
 				EFCA6AC123417E9100904D4F /* AppDelegate.swift in Sources */,
 				EF9E4E0723731BBF0093F92E /* SocialMediaItemView.swift in Sources */,
 				EFBFFBF723764E7D00744A07 /* HomeItemCreationView.swift in Sources */,
+				EF407C32238483A0006B2EB0 /* SettingsView.swift in Sources */,
 				EFCA6AC323417E9100904D4F /* SceneDelegate.swift in Sources */,
 				EF9E4E0223720BBD0093F92E /* SocialMediaView.swift in Sources */,
 				EF7CCC6123564AD50031CEC7 /* HomeView.swift in Sources */,
