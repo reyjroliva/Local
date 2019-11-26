@@ -9,17 +9,29 @@
 import SwiftUI
 
 struct loginView: View {
-    @State var signUpSheetPresented = false
+    @Binding var isLoggedIn: Bool
+    @Binding var isOwner: Bool
     
-    init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemBlue]
-    }
+    @State var signUpSheetPresented = false
+    @State var username = ""
+    @State var password = ""
     
     var body: some View {
-        NavigationView {
+        Background {
             VStack(alignment: .center, spacing: 10.0) {
-                accountInputFieldsView()
-                NavigationLink(destination: tabControllerView()) {
+                Text("Welcome to Local!")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .foregroundColor(Color(UIColor.systemBlue))
+                    .padding(.bottom, 30)
+                accountInputFieldsView(username: self.$username, password: self.$password)
+                Button(action: {
+                    withAnimation {
+                        self.endEditing()
+                        self.isLoggedIn = true
+                        self.isOwner = (self.username == "localOwner" && self.password == "localOwner")
+                    }
+                }) {
                     Text("Login")
                         .font(.title)
                         .foregroundColor(Color.white)
@@ -41,20 +53,24 @@ struct loginView: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 270.0, height: 50.0, alignment: .center)
                 }
-                .sheet(isPresented: $signUpSheetPresented, content: {
+                .sheet(isPresented: self.$signUpSheetPresented, content: {
                     signUpView(showingSignUpSheet: self.$signUpSheetPresented)
                 })
                     .background(Color(UIColor.systemBlue))
                     .cornerRadius(15.0)
             }
-            .navigationBarTitle(Text("Welcome To Local!"), displayMode: .large)
-            .fixedSize(horizontal: true, vertical: true)
         }
+    }
+    
+    private func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
 }
 
 struct loginView_Previews: PreviewProvider {
+    @State static var isLoggedIn_Preview = false
+    @State static var isOwner_Preview = false
     static var previews: some View {
-        loginView()
+        loginView(isLoggedIn: $isLoggedIn_Preview, isOwner: $isOwner_Preview)
     }
 }

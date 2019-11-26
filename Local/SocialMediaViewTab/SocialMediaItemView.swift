@@ -27,17 +27,18 @@ struct socialMediaItemView: View {
                 .font(.largeTitle)
                 .frame(minWidth: 0, idealWidth: 300, maxWidth: 500, minHeight: 300, idealHeight: 300, maxHeight: 300)
             if(post.source == .ig) {
-                Image(systemName: "camera.fill")
-                    .font(.title)
-                    .foregroundColor(Color(UIColor.systemPink))
+                Image("Instagram")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
             } else if(post.source == .tw) {
-                Image(systemName: "paperplane.fill")
-                    .font(.title)
-                    .foregroundColor(Color(UIColor.systemBlue))
+                Image("Twitter")
+                    .resizable()
+                    .frame(width: 40, height: 40)
             } else if (post.source == .fb){
-                Image(systemName: "faceid")
-                    .font(.title)
-                    .foregroundColor(Color(UIColor.blue))
+                Image("Facebook")
+                    .resizable()
+                    .frame(width: 40, height: 40)
             }
         }
         .background(Color(UIColor.systemGray))

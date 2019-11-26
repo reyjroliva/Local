@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 
 struct accountInputFieldsView: View {
-    @State private var username = ""
-    @State private var password = ""
+    @Binding var username: String
+    @Binding var password: String
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -42,7 +42,9 @@ struct accountInputFieldsView: View {
 }
 
 struct accountInputFieldsView_Previews: PreviewProvider {
+    @State static var username_Preview = ""
+    @State static var password_Preview = ""
     static var previews: some View {
-        accountInputFieldsView()
+        accountInputFieldsView(username: $username_Preview, password: $password_Preview)
     }
 }

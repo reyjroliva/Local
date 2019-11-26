@@ -10,16 +10,19 @@ import Foundation
 import SwiftUI
 
 struct homeView: View {
+    @State var isOwner: Bool
+    @Binding var items: [Item]
+    
     @State var selection: Int? = nil
     @State var isPresented = false
     @State var itemCreationPresented = false
-    @State var itemToPresent = Item(name: "Bullshit", price: 5.0, description: "Even more bullshit about the bullshit")
-    @State var items = [Item(name: "Item 1", price: 4.20, description: "This is a description for Item 1, ya herrddd")]
+    @State var itemToPresent = Item(name: "Filler", price: 5.0, description: "Even more filler about the filler")
+//    @State var items = [Item(name: "Item 1", price: 4.20, description: "This is a description for Item 1, ya herrddd")]
+    @State var isShowingItemDeleteCompletion = false
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center, spacing: 0.0) {
-                Divider()
+        VStack(alignment: .center, spacing: 0.0) {
+            if isOwner {
                 Button(action: {
                     self.itemCreationPresented.toggle()
                 }) {
@@ -42,24 +45,23 @@ struct homeView: View {
                 .background(Color(UIColor.systemBlue))
                 .cornerRadius(15.0)
                 .padding(5.0)
-                Divider()
-                ScrollView {
-                    ForEach(items.reversed()) { item in
-                        Button(action: {
-                            self.isPresented.toggle()
-                            self.itemToPresent = item
-                        }) {
-                            homeItemView(item: item)
-                        }
-                        .foregroundColor(Color(UIColor.black))
-                        .sheet(isPresented: self.$isPresented) {
-                            homeItemDetailView(itemArray: self.$items, item: self.itemToPresent)
-                        }
+            }
+            Divider()
+            ScrollView {
+                ForEach(items.reversed()) { item in
+                    Button(action: {
+                        self.isPresented.toggle()
+                        self.itemToPresent = item
+                    }) {
+                        homeItemView(item: item)
+                    }
+                    .foregroundColor(Color(UIColor.black))
+                    .sheet(isPresented: self.$isPresented) {
+                        homeItemDetailView(showingItemDetailView: self.$isPresented, itemArray: self.$items, item: self.itemToPresent, isOwner: self.isOwner)
                     }
                 }
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
             }
+            
         }
     }
 }
@@ -79,7 +81,8 @@ func deleteItemFromList(items: inout [Item], item: Item) {
 }
 
 struct homeView_Preview: PreviewProvider {
+    @State static var items_preview = [Item(name: "Item 1", price: 4.20, description: "This is a description for Item 1, ya herrddd")]
     static var previews: some View {
-        homeView()
+        homeView(isOwner: false, items: $items_preview)
     }
 }

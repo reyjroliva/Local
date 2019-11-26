@@ -30,6 +30,7 @@ struct homeItemView: View {
                 Text("\(item.name)")
                     .font(.title)
                     .fontWeight(.light)
+                    .lineLimit(1)
                 Text("\(item.description)")
                     .font(.subheadline)
                     .fontWeight(.light)

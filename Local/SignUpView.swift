@@ -12,16 +12,19 @@ import SwiftUI
 struct signUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var showingSignUpSheet: Bool
+    
     @State private var showingSignUpAlert = false
+    @State var username = ""
+    @State var password = ""
     
     var body: some View {
-        NavigationView {
+        Background {
             VStack(alignment: .center, spacing: 10.0) {
                 Text("Create an Account with Local!")
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundColor(Color(UIColor.systemBlue))
-                accountInputFieldsView()
+                accountInputFieldsView(username: self.$username, password: self.$password)
                 Button(action: {
                     self.showingSignUpAlert = true
                 }) {
@@ -31,7 +34,7 @@ struct signUpView: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 270.0, height: 50.0, alignment: .center)
                 }
-                .alert(isPresented: $showingSignUpAlert, content: { () -> Alert in
+                .alert(isPresented: self.$showingSignUpAlert, content: { () -> Alert in
                     Alert(title: Text("Sign Up Successful!")
                         .font(.title)
                         .foregroundColor(Color(UIColor.systemBlue)),
@@ -41,10 +44,16 @@ struct signUpView: View {
                           })
                     )
                 })
-                .background(Color(UIColor.systemBlue))
-                .cornerRadius(15.0)
-                .padding(.bottom, 325.0)
+                    .background(Color(UIColor.systemBlue))
+                    .cornerRadius(15.0)
+                    .padding(.bottom, 325.0)
             }
+        }.onTapGesture {
+            self.endEditing()
         }
+    }
+    
+    private func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
 }

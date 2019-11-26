@@ -11,11 +11,15 @@ import SwiftUI
 import MessageUI
 
 struct homeItemDetailView: View {
+    @Binding var showingItemDetailView: Bool
     @Binding var itemArray: [Item]
     @State var item: Item
+    @State var isOwner: Bool
+    
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
-    @State private var isShowingMailSentAlert = false
+    @State private var isShowingItemDeleteAlert = false
+    
     
     var body: some View {
         ZStack {
@@ -36,37 +40,54 @@ struct homeItemDetailView: View {
                 }
                 Spacer()
                 Divider()
-                Button(action: {
-                    self.isShowingMailView.toggle()
-                }) {
-                    HStack(alignment: .center) {
-                        Text("Purchase")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.white)
-                        Spacer()
-                        Text("$\(item.price, specifier: "%.2f")")
+                if !isOwner {
+                    Button(action: {
+                        self.isShowingMailView.toggle()
+                    }) {
+                        HStack(alignment: .center) {
+                            Text("Purchase")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.white)
+                            Spacer()
+                            Text("$\(item.price, specifier: "%.2f")")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.white)
+                        }
+                        .padding(EdgeInsets(top: 0.0, leading: 20.0, bottom: 0.0, trailing: 20.0))
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50.0)
+                    .background(Color(UIColor.systemBlue))
+                    .cornerRadius(15.0)
+                }
+                if isOwner {
+                    Button(action: {
+                        self.isShowingItemDeleteAlert = true
+                    }) {
+                        Text("Delete Item")
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.white)
                     }
-                    .padding(EdgeInsets(top: 0.0, leading: 20.0, bottom: 0.0, trailing: 20.0))
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50.0)
+                    .background(Color(UIColor.systemRed))
+                    .cornerRadius(15.0)
+                    .alert(isPresented: self.$isShowingItemDeleteAlert) { () -> Alert in
+                        Alert(title: Text("Are You Sure You Want to Delete \(self.item.name)?")
+                            .font(.title)
+                            .foregroundColor(Color(UIColor.systemBlue)),
+                              message: Text("Deleting this item will remove it from your current list of products."),
+                              primaryButton: .destructive(Text("Delete"), action: {
+                                self.isShowingItemDeleteAlert = false
+                                deleteItemFromList(items: &self.itemArray, item: self.item)
+                                self.showingItemDetailView = false
+                              }),
+                              secondaryButton: .cancel({
+                                self.isShowingItemDeleteAlert = false
+                              }))
+                    }
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50.0)
-                .background(Color(UIColor.systemBlue))
-                .cornerRadius(15.0)
-                //If the user is the owner
-                Button(action: {
-                    deleteItemFromList(items: &self.itemArray, item: self.item)
-                }) {
-                    Text("Delete Item")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.white)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50.0)
-                .background(Color(UIColor.systemRed))
-                .cornerRadius(15.0)
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             .padding()
@@ -78,7 +99,6 @@ struct homeItemDetailView: View {
         }
     }
     
-    
     private func mailView() -> some View {
         MFMailComposeViewController.canSendMail() ?
             AnyView(MailView(isShowing: $isShowingMailView, result: $result, item: $item)) :
@@ -87,9 +107,11 @@ struct homeItemDetailView: View {
 }
 
 struct homeItemDetailView_Previews: PreviewProvider {
+    @State static var previewShowingItemDetailView = false
     @State static var previewItemsArray = [Item(name: "Some name", price: 5.0, description: "Some description")]
     @State static var item = Item(name: "Test Item", price: 4.20, description: "This is a test description")
+    @State static var previewIsOwner = false
     static var previews: some View  {
-        homeItemDetailView(itemArray:$previewItemsArray, item: item)
+        homeItemDetailView(showingItemDetailView: $previewShowingItemDetailView, itemArray:$previewItemsArray, item: item, isOwner: previewIsOwner)
     }
 }
